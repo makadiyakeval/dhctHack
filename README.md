@@ -1,6 +1,6 @@
 # dhct
 
-A new Flutter application.
+A new Flutter application, DHCT stands for Digital Healthcare and Contact Tracing
 
 ## Getting Started
 
