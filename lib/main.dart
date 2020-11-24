@@ -1,4 +1,3 @@
-import 'package:dhct/Doctor/Navigation/NavigationMenu/DoctorMenuDashboardLayout.dart';
 import 'package:flutter/material.dart';
 import 'AppTheme.dart';
 import 'Login/LoginPage.dart';
@@ -14,24 +13,8 @@ class MyApp extends StatelessWidget {
       title: 'DHCT',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.themeData(),
-      home: DoctorMenuDashboardLayout(),
+//      home: DoctorMenuDashboardLayout(),
+      home: LoginPage(),
     );
   }
 }
-
-//void main() {
-//  runApp(
-//    MaterialApp(
-//      debugShowCheckedModeBanner: false,
-//      theme: AppTheme.themeData(),
-//      home: MyApp(),
-//    ),
-//  );
-//}
-//
-//class MyApp extends StatelessWidget {
-//  @override
-//  Widget build(BuildContext context) {
-//    return DoctorMenuDashboardLayout();
-//  }
-//}

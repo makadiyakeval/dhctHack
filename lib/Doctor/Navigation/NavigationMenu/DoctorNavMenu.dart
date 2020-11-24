@@ -1,7 +1,9 @@
 import 'package:dhct/Doctor/Navigation/bloc/DoctorNavigationBloc.dart';
 import 'package:dhct/Values/Colors.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -99,14 +101,14 @@ class DoctorNavMenu extends StatelessWidget {
                   ),
                   NavMenuItem(
                     onMenuItemClicked: onMenuItemClicked,
-                    menuItemIcon: Icons.person,
+                    menuItemIcon: FeatherIcons.user,
                     menuItemName: 'My Profile',
                     navigationEvents: DoctorNavigationEvents.DoctorMyProfileClickedEvent,
                     selectedIndex: selectedIndex,
                   ),
                   NavMenuItem(
                     onMenuItemClicked: onMenuItemClicked,
-                    menuItemName: 'Barcode',
+                    menuItemName: 'QR Code',
                     menuItemIcon: Icons.qr_code_rounded,
                     navigationEvents: DoctorNavigationEvents.DoctorBarCodeClickedEvent,
                     selectedIndex: selectedIndex,
@@ -115,7 +117,7 @@ class DoctorNavMenu extends StatelessWidget {
               ),
               Row(
                 children: [
-                  Icon(Icons.settings, color: AppColors.navMenuItemColor),
+                  Icon(FeatherIcons.settings, color: AppColors.navMenuItemColor),
                   SizedBox(width: 10),
                   Text(
                     'Settings',
@@ -131,7 +133,7 @@ class DoctorNavMenu extends StatelessWidget {
                     color: AppColors.navMenuItemColor,
                   ),
                   SizedBox(width: 10),
-                  Icon(Icons.logout, color: AppColors.navMenuItemColor),
+                  Icon(FeatherIcons.logOut, color: AppColors.navMenuItemColor),
                   SizedBox(width: 10),
                   Text(
                     'Log Out',

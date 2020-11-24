@@ -1,4 +1,5 @@
 import 'package:dhct/Doctor/Screen/DoctorBarcode.dart';
+import 'package:dhct/Doctor/Screen/DoctorBlog.dart';
 import 'package:dhct/Doctor/Screen/DoctorMyPatients.dart';
 import 'package:dhct/Doctor/Screen/DoctorProfile.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +36,7 @@ class DoctorNavigationBloc extends Bloc<DoctorNavigationEvents, DoctorNavigation
         );
         break;
       case DoctorNavigationEvents.DoctorMyBlogClickedEvent:
-        yield DoctorBarcode(
+        yield DoctorBlog(
           onDoctorNavMenuIconTap: onDoctorNavMenuIconTap,
           isMenuOpen: isMenuOpen,
         );

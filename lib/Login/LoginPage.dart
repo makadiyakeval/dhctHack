@@ -1,5 +1,7 @@
-import 'package:flutter/cupertino.dart';
+import 'package:dhct/Values/Colors.dart';
+import 'package:dhct/Widgets/CustomTextInput.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
 const double screenPadding = 16;
 
@@ -9,6 +11,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  String _value = 'Doctor';
   @override
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
@@ -16,7 +19,7 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Container(
-        width: double.infinity,
+//        width: size.width,
         height: size.height,
         child: Stack(
           alignment: Alignment.center,
@@ -38,14 +41,221 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             Positioned(
-              child: SafeArea(
-                child: Column(
-                  children: [
-                    Text(
-                      'Welcome',
-                      style: theme.textTheme.headline5,
-                    )
-                  ],
+              left: 0,
+              top: 0,
+              right: 0,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
+                child: SafeArea(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        height: size.height * 0.1,
+                      ),
+                      Text(
+                        'Welcome Back!',
+                        style: theme.textTheme.headline5.copyWith(
+                          fontWeight: FontWeight.w100,
+                          color: AppColors.primaryShade1,
+                        ),
+                      ),
+                      Text(
+                        'Login to Continue.',
+                        style: theme.textTheme.headline5.copyWith(
+                          color: Colors.grey[500],
+                          fontWeight: FontWeight.w100,
+                          fontStyle: FontStyle.normal,
+                        ),
+                      ),
+                      SizedBox(
+                        height: size.height * 0.05,
+                      ),
+                      Text(
+                        'Are You ?',
+                        style: theme.textTheme.subtitle1.copyWith(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 8,
+                      ),
+                      Container(
+                        width: size.width,
+                        padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                        decoration: BoxDecoration(
+                          color: AppColors.textInputBackground,
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: DropdownButtonFormField<String>(
+                          hint: Text(
+                            'Who Are You?',
+                            style: theme.textTheme.bodyText1.copyWith(
+                              color: AppColors.textInputHintColor,
+                            ),
+                          ),
+                          value: _value,
+                          decoration: InputDecoration(
+                            enabledBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: AppColors.textInputBackground),
+                            ),
+                          ),
+                          dropdownColor: AppColors.textInputBackground,
+                          items: [
+                            DropdownMenuItem<String>(
+                              child: Row(
+                                children: [
+                                  Text('👨‍⚕️'),
+                                  SizedBox(width: 12),
+                                  Text(
+                                    'Doctor',
+                                    style: theme.textTheme.bodyText1.copyWith(
+                                      color: AppColors.textInputTextColor,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              value: 'Doctor',
+                            ),
+                            DropdownMenuItem<String>(
+                              child: Row(
+                                children: [
+                                  Text('🔬'),
+                                  SizedBox(width: 12),
+                                  Text(
+                                    'Laboratory',
+                                    style: theme.textTheme.bodyText1.copyWith(
+                                      color: AppColors.textInputTextColor,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              value: 'Laboratory',
+                            ),
+                            DropdownMenuItem<String>(
+                              child: Row(
+                                children: [
+                                  Text('🧑'),
+                                  SizedBox(width: 12),
+                                  Text(
+                                    'Patient',
+                                    style: theme.textTheme.bodyText1.copyWith(
+                                      color: AppColors.textInputTextColor,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              value: 'Patient',
+                            ),
+                            DropdownMenuItem<String>(
+                              child: Row(
+                                children: [
+                                  Text('🏬'),
+                                  SizedBox(width: 12),
+                                  Text(
+                                    'ShopKeeper',
+                                    style: theme.textTheme.bodyText1.copyWith(
+                                      color: AppColors.textInputTextColor,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              value: 'ShopKeeper',
+                            ),
+                          ].toList(),
+                          onChanged: (newValue) {
+                            setState(() {
+                              _value = newValue;
+                              print('Drop Value: ' + _value);
+                            });
+                          },
+                        ),
+                      ),
+                      SizedBox(
+                        height: size.height * 0.03,
+                      ),
+                      Text(
+                        'Email',
+                        style: theme.textTheme.subtitle1.copyWith(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 8,
+                      ),
+                      CustomTextInput(
+                        hintText: 'Enter Your Email',
+                        leadingIcon: FeatherIcons.mail,
+                        hasLeadingIcon: true,
+                      ),
+                      SizedBox(
+                        height: size.height * 0.03,
+                      ),
+                      Text(
+                        'Password',
+                        style: theme.textTheme.subtitle1.copyWith(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 8,
+                      ),
+                      CustomTextInput(
+                        hintText: 'Enter Password',
+                        leadingIcon: FeatherIcons.key,
+                        trailingIcon: FeatherIcons.eye,
+                        hasTrailingIcon: true,
+                        hasLeadingIcon: true,
+                        isPasswordField: true,
+                      ),
+                      SizedBox(
+                        height: size.height * 0.03,
+                      ),
+                      Center(
+                        child: Container(
+                          width: size.width * 0.7,
+                          child: FlatButton(
+                            color: AppColors.primaryShade2,
+                            textColor: AppColors.secondaryShade1,
+                            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(29),
+                            ),
+                            child: Center(
+                              child: Text('Log In'),
+                            ),
+                            onPressed: () {},
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: size.height * 0.025,
+                      ),
+                      GestureDetector(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Don\'t Have an Account ?',
+                              style: theme.textTheme.bodyText2.copyWith(
+                                color: AppColors.primaryShade1,
+                              ),
+                            ),
+                            Text(
+                              ' Register',
+                              style: theme.textTheme.bodyText2.copyWith(
+                                color: AppColors.primaryShade1,
+                                fontWeight: FontWeight.w900,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),

@@ -21,7 +21,8 @@ class DoctorMenuDashboardLayout extends StatefulWidget {
 class _DoctorMenuDashboardLayoutState extends State<DoctorMenuDashboardLayout> with SingleTickerProviderStateMixin {
   bool isMenuOpen = true;
   double screenHeight, screenWidth;
-  final Duration duration = Duration(milliseconds: 500);
+  //todo duration Changed from 500 to 300
+  final Duration duration = Duration(milliseconds: 300);
   AnimationController _animationController;
   Animation<double> _scaleAnimation;
   Animation<double> _menuScaleAnimation;
@@ -113,9 +114,11 @@ int getSelectedDoctorNavMenuItemIndex(DoctorNavigationStates navigationState) {
   } else if (navigationState is DoctorMyPatients) {
     return 1;
   } else if (navigationState is DoctorBarcode) {
-    return 2;
-  } else if (navigationState is DoctorBlog) {
+//    return 2;
     return 3;
+  } else if (navigationState is DoctorBlog) {
+//    return 3;
+    return 2;
   } else {
     return 0;
   }

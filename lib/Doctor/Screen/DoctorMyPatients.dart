@@ -2,8 +2,10 @@ import 'package:dhct/Doctor/Navigation/bloc/DoctorNavigationBloc.dart';
 import 'package:dhct/Doctor/Screen/PatientDetails.dart';
 import 'package:dhct/Values/Colors.dart';
 import 'package:dhct/Widgets/CustomAppbar.dart';
+import 'package:dhct/Widgets/CustomFAB.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
 class DoctorMyPatients extends StatefulWidget with DoctorNavigationStates {
   final Function onDoctorNavMenuIconTap;
@@ -38,10 +40,11 @@ class _DoctorMyPatientsState extends State<DoctorMyPatients> {
                 },
                 child: DoctorMyPatientsCard(
                   size: size,
-                  profileImgUrl: 'https://picsum.photos/200',
+//                  profileImgUrl: 'https://picsum.photos/200',
+                  profileImgUrl: 'https://i.pravatar.cc/150?img=68',
                   patientName: 'Keval Makadiya',
                   patientCity: 'Surat',
-                  patientWeight: 57,
+                  patientWeight: 58,
                   patientAge: 22,
                   patientBloodGroup: 'O Positive',
                   callBtnFunction: null,
@@ -62,26 +65,14 @@ class _DoctorMyPatientsState extends State<DoctorMyPatients> {
           ),
         ],
       ),
-      floatingActionButton: FloatingActionButton.extended(
-        label: Text(
-          'Add Patient',
-          style: theme.textTheme.button,
-        ),
-        icon: Icon(
-          CupertinoIcons.person_add_solid,
-          size: 22,
-          color: AppColors.primaryShade1,
-        ),
-        backgroundColor: AppColors.primaryShade2,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(5),
-            bottomRight: Radius.circular(5),
-            topRight: Radius.circular(25),
-            bottomLeft: Radius.circular(25),
-          ),
-        ),
-        onPressed: () {},
+      floatingActionButton: CustomFAB(
+        buttonColor: AppColors.primaryShade2,
+        buttonText: 'Add Patient',
+        buttonTextColor: AppColors.primaryShade1,
+        hasIcon: true,
+        buttonIcon: CupertinoIcons.person_add_solid,
+        iconColor: AppColors.primaryShade1,
+        buttonFunction: () {},
       ),
     );
   }
@@ -117,151 +108,149 @@ class DoctorMyPatientsCard extends StatelessWidget {
       child: Material(
         borderRadius: BorderRadius.circular(20),
         elevation: 4,
-        child: Flexible(
-          child: Container(
-            width: size.width,
+        child: Container(
+          width: size.width,
 //      height: 150,
-            padding: EdgeInsets.all(12),
-            decoration: BoxDecoration(
-              color: AppColors.cardLightColor,
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                        CircleAvatar(
-                          minRadius: 25,
-                          maxRadius: 25,
-                          backgroundImage: NetworkImage(profileImgUrl),
-                        ),
-                        SizedBox(
-                          width: 16,
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              patientName,
-                              style: theme.textTheme.subtitle2.copyWith(
-                                fontSize: 16,
-                              ),
-                            ),
-                            Text(
-                              patientCity,
-                              style: theme.textTheme.bodyText2.copyWith(
-                                color: Colors.grey,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                    IconButton(
-                      icon: Icon(
-                        CupertinoIcons.phone,
-                        color: AppColors.primaryShade2,
+          padding: EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            color: AppColors.cardLightColor,
+            borderRadius: BorderRadius.circular(20),
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      CircleAvatar(
+                        minRadius: 25,
+                        maxRadius: 25,
+                        backgroundImage: NetworkImage(profileImgUrl),
                       ),
-                      onPressed: callBtnFunction,
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 24,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Row(
-                          children: [
-                            Icon(
-                              CupertinoIcons.calendar,
-                              size: 14,
-                              color: AppColors.primaryShade1,
+                      SizedBox(
+                        width: 16,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            patientName,
+                            style: theme.textTheme.subtitle2.copyWith(
+                              fontSize: 16,
                             ),
-                            SizedBox(
-                              width: 4,
-                            ),
-                            Text(
-                              'AGE',
-                              style: theme.textTheme.subtitle2.copyWith(fontSize: 14),
-                            ),
-                          ],
-                        ),
-                        Text(
-                          patientAge.toString() + ' Years',
-                          style: theme.textTheme.caption.copyWith(
-                            fontSize: 13,
                           ),
-                        ),
-                      ],
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Row(
-                          children: [
-                            Icon(
-                              CupertinoIcons.gauge,
-                              size: 14,
-                              color: AppColors.primaryShade1,
+                          Text(
+                            patientCity,
+                            style: theme.textTheme.bodyText2.copyWith(
+                              color: Colors.grey,
                             ),
-                            SizedBox(
-                              width: 4,
-                            ),
-                            Text(
-                              'WEIGHT',
-                              style: theme.textTheme.subtitle2,
-                            ),
-                          ],
-                        ),
-                        Text(
-                          patientWeight.toString() + ' Kg',
-                          style: theme.textTheme.caption.copyWith(
-                            fontSize: 13,
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
+                    ],
+                  ),
+                  IconButton(
+                    icon: Icon(
+                      CupertinoIcons.phone,
+                      color: AppColors.primaryShade2,
                     ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Row(
-                          children: [
-                            Icon(
-                              CupertinoIcons.drop_fill,
-                              size: 14,
-                              color: AppColors.primaryShade1,
-                            ),
-                            SizedBox(
-                              width: 4,
-                            ),
-                            Text(
-                              'BLOOD',
-                              style: theme.textTheme.subtitle2,
-                            ),
-                          ],
-                        ),
-                        Text(
-                          patientBloodGroup,
-                          style: theme.textTheme.caption.copyWith(
-                            fontSize: 13,
+                    onPressed: callBtnFunction,
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 24,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Row(
+                        children: [
+                          Icon(
+                            FeatherIcons.calendar,
+                            size: 14,
+                            color: AppColors.primaryShade1,
                           ),
+                          SizedBox(
+                            width: 4,
+                          ),
+                          Text(
+                            'AGE',
+                            style: theme.textTheme.subtitle2.copyWith(fontSize: 14),
+                          ),
+                        ],
+                      ),
+                      Text(
+                        patientAge.toString() + ' Years',
+                        style: theme.textTheme.caption.copyWith(
+                          fontSize: 13,
                         ),
-                      ],
-                    ),
-                  ],
-                ),
-              ],
-            ),
+                      ),
+                    ],
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Row(
+                        children: [
+                          Icon(
+                            CupertinoIcons.gauge,
+                            size: 14,
+                            color: AppColors.primaryShade1,
+                          ),
+                          SizedBox(
+                            width: 4,
+                          ),
+                          Text(
+                            'WEIGHT',
+                            style: theme.textTheme.subtitle2,
+                          ),
+                        ],
+                      ),
+                      Text(
+                        patientWeight.toString() + ' Kg',
+                        style: theme.textTheme.caption.copyWith(
+                          fontSize: 13,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Row(
+                        children: [
+                          Icon(
+                            CupertinoIcons.drop_fill,
+                            size: 14,
+                            color: AppColors.primaryShade1,
+                          ),
+                          SizedBox(
+                            width: 4,
+                          ),
+                          Text(
+                            'BLOOD',
+                            style: theme.textTheme.subtitle2,
+                          ),
+                        ],
+                      ),
+                      Text(
+                        patientBloodGroup,
+                        style: theme.textTheme.caption.copyWith(
+                          fontSize: 13,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ],
           ),
         ),
       ),

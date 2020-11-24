@@ -27,4 +27,11 @@ class AppColors {
 
   //Card Background Shades
   static const Color cardLightColor = Color(0xFFFFFFFF);
+
+  //Text Input Field Colors
+  static const Color textInputBackground = Color(0xFFF2F7FC);
+  static const Color textInputIconColor = Color(0xFF8856AC);
+  static const Color textInputCursorColor = Color(0xFF8856AC);
+  static const Color textInputTextColor = Color(0xFF8856AC);
+  static const Color textInputHintColor = Color(0xFF8856AC);
 }
