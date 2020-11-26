@@ -14,11 +14,12 @@ class CustomAppbar extends StatelessWidget {
   final IconData trailingIcon;
   final Function leadingIconFunction;
   final Function trailingIconFunction;
+//  final ThemeData theme;
 
   const CustomAppbar({
     Key key,
     @required this.size,
-    @required this.theme,
+//    @required this.theme,
     @required this.appBarColor,
     @required this.appBarLeadingIconColor,
     @required this.appBarTextColor,
@@ -32,10 +33,9 @@ class CustomAppbar extends StatelessWidget {
     this.trailingIconFunction,
   }) : super(key: key);
 
-  final ThemeData theme;
-
   @override
   Widget build(BuildContext context) {
+    ThemeData theme = Theme.of(context);
     return Material(
       elevation: 16,
       borderRadius: BorderRadius.only(

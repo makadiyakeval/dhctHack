@@ -54,7 +54,6 @@ class _DoctorBarcodeState extends State<DoctorBarcode> {
           ),
           CustomAppbar(
               size: size,
-              theme: theme,
               appBarColor: AppColors.appBarColorDark,
               appBarLeadingIconColor: AppColors.appBarDarkIconColor,
               appBarTextColor: AppColors.appBarDarkTextColor,

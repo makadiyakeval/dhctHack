@@ -54,7 +54,6 @@ class _DoctorBlogState extends State<DoctorBlog> {
           ),
           CustomAppbar(
               size: size,
-              theme: theme,
               appBarColor: AppColors.appBarColorDark,
               appBarLeadingIconColor: AppColors.appBarDarkIconColor,
               appBarTextColor: AppColors.appBarDarkTextColor,

@@ -54,7 +54,6 @@ class _DoctorMyPatientsState extends State<DoctorMyPatients> {
           ),
           CustomAppbar(
             size: size,
-            theme: theme,
             appBarColor: AppColors.appBarColorDark,
             appBarLeadingIconColor: AppColors.appBarDarkIconColor,
             appBarTextColor: AppColors.appBarDarkTextColor,
