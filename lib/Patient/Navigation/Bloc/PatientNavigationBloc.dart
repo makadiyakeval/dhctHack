@@ -23,7 +23,7 @@ class PatientNavigationBloc extends Bloc<PatientNavigationEvents, PatientNavigat
   PatientNavigationBloc({this.isMenuOpen, @required this.onPatientNavMenuIconTap});
 
   @override
-  PatientNavigationStates get initialState => PatientProfile(
+  PatientNavigationStates get initialState => PatientMyDocuments(
         onPatientNavMenuIconTap: onPatientNavMenuIconTap,
         isMenuOpen: isMenuOpen,
       );

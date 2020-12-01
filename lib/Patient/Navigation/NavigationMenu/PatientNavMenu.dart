@@ -203,7 +203,7 @@ class NavMenuItem extends StatelessWidget {
                     : AppColors.navMenuItemColor,
                 fontWeight: FontWeight.w600,
               ),
-            )
+            ),
           ],
         ),
       ),

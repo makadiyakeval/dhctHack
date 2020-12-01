@@ -34,4 +34,11 @@ class AppColors {
   static const Color textInputCursorColor = Color(0xFF8856AC);
   static const Color textInputTextColor = Color(0xFF8856AC);
   static const Color textInputHintColor = Color(0xFF8856AC);
+
+  //Dialog Colors
+  static const Color dialogBackgroundDark = Color(0xFF251432);
+  static const Color dialogTitleLight = Color(0xFFDDE9EE);
+  static const Color dialogBodyTextLight = Color(0xFF9599B3);
+  static const Color dialogPositiveButton = Color(0xFF8856AC);
+  static const Color dialogNegativeButton = Color(0xFFEF578E);
 }

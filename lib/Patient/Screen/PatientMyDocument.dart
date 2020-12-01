@@ -1,5 +1,6 @@
 import 'package:dhct/Patient/Navigation/Bloc/PatientNavigationBloc.dart';
 import 'package:dhct/Values/Colors.dart';
+import 'package:dhct/Widgets/CustomAlertDialog.dart';
 import 'package:dhct/Widgets/CustomAppbar.dart';
 import 'package:flutter/material.dart';
 
@@ -31,6 +32,25 @@ class _PatientMyDocumentsState extends State<PatientMyDocuments> {
                   children: [
                     SizedBox(
                       height: size.height * 0.05,
+                    ),
+                    SizedBox(
+                      height: size.height * 0.2,
+                    ),
+                    RaisedButton(
+                      onPressed: () {
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext build) {
+                            return CustomAlertDialog(
+                              dialogContent: 'This is Content Line',
+                              dialogTitle: 'Title',
+                              hasNegativeAction: true,
+                              hasPositiveAction: true,
+                            );
+                          },
+                        );
+                      },
+                      child: Text('Hello'),
                     ),
                   ],
                 ),
