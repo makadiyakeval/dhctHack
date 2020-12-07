@@ -53,9 +53,9 @@ class _LoginPageState extends State<LoginPage> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: AnimationConfiguration.toStaggeredList(
-                        duration: const Duration(milliseconds: 200),
+                        duration: const Duration(milliseconds: 375),
                         childAnimationBuilder: (widget) => SlideAnimation(
-                          horizontalOffset: 50,
+                          verticalOffset: -25,
                           child: FadeInAnimation(
                             child: widget,
                           ),
@@ -221,6 +221,20 @@ class _LoginPageState extends State<LoginPage> {
                             hasTrailingIcon: true,
                             hasLeadingIcon: true,
                             isPasswordField: true,
+                          ),
+                          SizedBox(
+                            height: size.height * 0.01,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Text(
+                                'Forget Password ?',
+                                style: theme.textTheme.bodyText2.copyWith(
+                                  color: AppColors.primaryShade3,
+                                ),
+                              ),
+                            ],
                           ),
                           SizedBox(
                             height: size.height * 0.03,

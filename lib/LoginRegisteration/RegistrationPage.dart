@@ -10,7 +10,7 @@ class RegisterationPage extends StatelessWidget {
     ThemeData theme = Theme.of(context);
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Colors.white,
+//      backgroundColor: Colors.white,
       body: Container(
 //        width: size.width,
         height: size.height,
@@ -85,8 +85,9 @@ class RegisterationPage extends StatelessWidget {
                       AnimationLimiter(
                         child: GridView.count(
                           crossAxisCount: 2,
-                          crossAxisSpacing: 12,
-                          mainAxisSpacing: 12,
+                          crossAxisSpacing: 4,
+                          mainAxisSpacing: 4,
+                          padding: EdgeInsets.symmetric(vertical: 16),
                           shrinkWrap: true,
                           children: List.generate(
                             listUserTypes.length,
@@ -104,7 +105,7 @@ class RegisterationPage extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                        height: size.height * 0.03,
+                        height: size.height * 0.01,
                       ),
                       GestureDetector(
                         onTap: () {
@@ -145,18 +146,22 @@ List<RegistrationTypeCard> listUserTypes = [
   RegistrationTypeCard(
     imgPath: 'asset/characters/doctor.png',
     userType: 'Doctor',
+    function: () {},
   ),
   RegistrationTypeCard(
     imgPath: 'asset/characters/patient.png',
     userType: 'Patient',
+    function: () {},
   ),
   RegistrationTypeCard(
     imgPath: 'asset/characters/scientist.png',
     userType: 'Laboratory',
+    function: () {},
   ),
   RegistrationTypeCard(
     imgPath: 'asset/characters/shopkeeper.png',
     userType: 'Shopkeeper',
+    function: () {},
   ),
 ];
 
@@ -164,43 +169,54 @@ class RegistrationTypeCard extends StatelessWidget {
   final String imgPath;
   final String userType;
   final Color backgroundColor;
+  final Function function;
 
   const RegistrationTypeCard({
     Key key,
     @required this.imgPath,
     @required this.userType,
-    this.backgroundColor = const Color(0xFFeeeeee),
+    this.backgroundColor = const Color(0xFFFFFFFF),
+    @required this.function,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
     Size size = MediaQuery.of(context).size;
-    return Container(
-      padding: EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: backgroundColor,
-        borderRadius: BorderRadius.circular(29),
-      ),
-      child: Center(
-        child: Column(
-          children: [
-            Image.asset(
-              imgPath,
-              height: size.width * 0.2,
-              width: size.width * 0.2,
-            ),
-            SizedBox(
-              height: 16,
-            ),
-            Text(
-              userType,
-              style: theme.textTheme.headline6.copyWith(
-                fontWeight: FontWeight.w100,
-                color: AppColors.primaryShade1,
+    return GestureDetector(
+      onTap: function,
+      child: Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16),
+        ),
+        elevation: 2,
+        color: Colors.white,
+        child: Container(
+          padding: EdgeInsets.all(16),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(8),
+                child: Image.asset(
+                  imgPath,
+                  //previous size was 0.2
+                  height: size.width * 0.22,
+                  width: size.width * 0.22,
+                ),
               ),
-            ),
-          ],
+              SizedBox(
+                height: 8,
+              ),
+              Text(
+                userType,
+                style: theme.textTheme.headline6.copyWith(
+                  fontWeight: FontWeight.w100,
+                  color: AppColors.primaryShade1,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
